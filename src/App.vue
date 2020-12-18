@@ -1,32 +1,68 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <search-bar v-on:inputValue="getUser($event)" />
+
+    <div v-if="!username">
+      <user-default />
     </div>
-    <router-view />
+
+    <div v-else>
+      <github-user :user="user" />
+    </div>
+    
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import axios from 'axios'
+import UserDefault from './components/DefaultUser'
+import GithubUser from './components/GithubUser'
+import SearchBar from './components/SearchBar'
+
+export default {
+  components: {
+    UserDefault,
+    GithubUser,
+    SearchBar
+  },
+
+  data() {
+    return {
+      user: {},
+      username: '',
+    }
+  },
+
+  methods: {
+    getUser(value) {
+      this.username = value
+
+      if (this.username !== '') {
+        axios.get(`https://api.github.com/users/${this.username}`, {
+          headers: {
+            'Authorization': 'bearer' + process.env.CLIENT_ID,
+          }
+        })
+        .then((res) => this.user = res.data)
+      }
+    }
+  },
+
+}
+</script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+body {
+  padding-top: 50px;
+  font-family: sans-serif;
+  background-color: #151515;
 }
 </style>
