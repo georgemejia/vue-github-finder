@@ -13,8 +13,8 @@
         <div class="col__right">
           <div class="user__stats">
             <span class="user__stat">Following 0</span>
-            <span class="user__stat">Followers 0</span>
-            <span class="user__stat">Public Repositories 0</span>
+            <span class="user__stat user__stat--purple">Followers 0</span>
+            <span class="user__stat user__stat--blue">Public Repositories 0</span>
           </div>
 
           <div class="user__info">
@@ -41,9 +41,9 @@ export default {}
   width: 100%;
   max-width: 700px;
   margin: 50px auto;
-  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 1em;
+  padding: 3em;
+  background-color: #212324;
 }
 .row {
   display: grid;
@@ -71,6 +71,13 @@ export default {}
   padding: 0.6em;
   background-color: #55d48a;
   margin-right: 5px;
+  border-radius: 5px;
+}
+.user__stat--purple {
+  background-color: #a229a2;
+}
+.user__stat--blue {
+  background-color: #2491c6;
 }
 .user__list {
   list-style-type: none;
@@ -78,7 +85,7 @@ export default {}
 .user__list-item {
   padding: 15px 8px;
   color: #fff;
-  border: solid 1px #2c2d2e;
+  border: solid 1px#4b5157;
   font-size: 0.9rem;
 }
 .user__image {
