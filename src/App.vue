@@ -1,15 +1,17 @@
 <template>
   <div>
+    <h1 class="title">Vue GitHub Finder</h1>
     <search-bar v-on:inputValue="getUser($event)" />
 
-    <div v-if="!username">
-      <user-default />
+    <div>
+      <div v-if="!username">
+        <user-default />
+      </div> 
+      <div v-else>
+        <github-user :user="user" />
+      </div>
     </div>
 
-    <div v-else>
-      <github-user :user="user" />
-    </div>
-    
   </div>
 </template>
 
@@ -46,7 +48,7 @@ export default {
         .then((res) => this.user = res.data)
       }
     }
-  },
+  }
 
 }
 </script>
@@ -61,8 +63,17 @@ export default {
 }
 
 body {
-  padding-top: 50px;
   font-family: sans-serif;
   background-color: #151515;
+}
+.title {
+  color: #f0f0f0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: #55d48a;
+  padding: 1em;
+  text-align: center;
 }
 </style>

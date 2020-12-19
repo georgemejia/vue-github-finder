@@ -1,19 +1,19 @@
 <template>
   <div class="container">
-    <div class="row">
 
+    <div class="row">
       <div class="col__left">
         <img class="user__image" :src="user.avatar_url" alt="This is an unsplash random photo">
         <p class="user__name">{{ user.name }}</p>
         <p class="user__username">{{ user.login }}</p>
-        <a class="user__link" :href="user.html_url" target="_blank" rel="noopener noreferrer">view more</a>
+        <a class="user__link" :href="user.html_url" target="_blank" rel="noopener noreferrer">View Profile</a>
       </div>
 
       <div class="col__right">
         <div class="user__stats">
           <span class="user__stat">Following {{ user.following}}</span>
           <span class="user__stat">Followers {{ user.followers}}</span>
-          <span class="user__stat">Repositories {{ user.public_repos }}</span>
+          <span class="user__stat">Public Repositories {{ user.public_repos }}</span>
         </div>
         <div class="user__info">
           <ul class="user__list">
@@ -24,8 +24,8 @@
           </ul>
         </div>
       </div>
-
     </div>
+
   </div>
 </template>
 
@@ -40,8 +40,11 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 50px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em;
 }
 .row {
   display: grid;
@@ -83,14 +86,30 @@ export default {
   font-size: 1rem;
 }
 .user__link {
-  color: #333;
+  color: #55d48a;
   font-size: 1rem;
   display: inline-block;
-  text-decoration: none;
+  text-decoration: underline;
   text-transform: capitalize;
-  background-color: #55d48a;
-  padding: 0.5em 1.1em;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 40em) {
+  .container {
+    width: 90%;
+  }
+  .row {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .col__right {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .user__image {
+    width: 100%;
+  }
 }
 </style>

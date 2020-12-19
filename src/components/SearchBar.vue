@@ -1,15 +1,14 @@
 <template>
   <div>
     <div class="container">
-      <h1 class="title">Vue GitHub Finder</h1>
-      <div class="form-control">
-        <label class="label">Enter a users name to fetch the users profile</label>
+      <div class="form__control">
+        <label class="label">Enter a users username to fetch the users profile</label>
         <input
           v-model="username"
           v-on:keyup="sendValue"
           class="input"
           type="text"
-          placeholder="Start typing a name"
+          placeholder="Type username"
         />
       </div>
     </div>
@@ -29,25 +28,18 @@ export default {
       this.$emit('inputValue', this.username)
     }
   }
+
 };
 </script>
 
 <style scoped>
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 50px auto 0 auto;
 }
 
-.title {
-  color: #f0f0f0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.form-control {
+.form__control {
   margin-top: 20px;
 }
 
@@ -66,5 +58,11 @@ export default {
 
 .input::placeholder {
   color: #c9c9c9;
+}
+
+@media screen and (max-width: 40em) {
+  .container {
+    width: 90%;
+  }
 }
 </style>

@@ -7,18 +7,19 @@
           <img class="user__image" src="https://source.unsplash.com/random/180x180" alt="This is an unsplash random photo">
           <p class="user__name">John Doe</p>
           <p class="user__username">johndoegithub</p>
-          <a class="user__link" href="#">view more</a>
+          <a class="user__link" href="#">View Profile</a>
         </div>
 
         <div class="col__right">
           <div class="user__stats">
             <span class="user__stat">Following 0</span>
             <span class="user__stat">Followers 0</span>
-            <span class="user__stat">Repositories 0</span>
+            <span class="user__stat">Public Repositories 0</span>
           </div>
+
           <div class="user__info">
             <ul class="user__list">
-              <li class="user__list-item">Website: https://mywebsite.com</li>
+              <li class="user__list-item">Website: https://www.mywebsite.com</li>
               <li class="user__list-item">Location: USA</li>
               <li class="user__list-item">Member since: 2020</li>
               <li class="user__list-item">Twitter: JohnDoeTwitter</li>
@@ -35,11 +36,14 @@
 export default {}
 </script>
 
-<style>
+<style scoped>
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 50px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em;
 }
 .row {
   display: grid;
@@ -63,8 +67,8 @@ export default {}
   margin-top: 25px;
 }
 .user__stat {
-  font-size: 0.7rem;
-  padding: 0.3em;
+  font-size: 0.9rem;
+  padding: 0.6em;
   background-color: #55d48a;
   margin-right: 5px;
 }
@@ -88,5 +92,23 @@ export default {}
   text-transform: capitalize;
   border-radius: 10px;
   margin-top: 20px;
+}
+@media screen and (max-width: 40em) {
+  .container {
+    width: 90%;
+  }
+  .row {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+  .col__right {
+    display: flex;
+    flex-direction: column;
+  }
+  .user__image {
+    width: 100%;
+  }
 }
 </style>
