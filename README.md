@@ -1,24 +1,3 @@
 # vue-github-finder
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This is a GitHub finder web application. A user can start typing a username and after every keypress the application will fetch that GitHub user using the GitHub API. It shows some of the users information on the card, and also provided a link to their actual GitHub.
