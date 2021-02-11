@@ -17,10 +17,10 @@
         </div>
         <div class="user__info">
           <ul class="user__list">
-            <li class="user__list-item">Website: {{ user.blog }}</li>
+            <li class="user__list-item user__list-item--radius-top">Website: {{ user.blog }}</li>
             <li class="user__list-item">Location: {{ user.location }}</li>
             <li class="user__list-item">Member since: 2020</li>
-            <li class="user__list-item">Twitter: {{ user.twitter_username }}</li>
+            <li class="user__list-item user__list-item--radius-bottom">Twitter: {{ user.twitter_username }}</li>
           </ul>
         </div>
       </div>
@@ -41,7 +41,7 @@ export default {
 .container {
   width: 100%;
   max-width: 700px;
-  margin: 50px auto;
+  margin: 20px auto;
   border-radius: 5px;
   padding: 3em;
   background-color: #212324;
@@ -60,11 +60,13 @@ export default {
   margin-top: 25px;
 }
 .user__stat {
+  color: #FFFFFF;
   font-size: 0.9rem;
   padding: 0.6em;
-  background-color: #55d48a;
-  margin-right: 5px;
+  background-color: #36af8b;
+  margin-right: 25px;
   border-radius: 5px;
+  padding: 5px;
 }
 .user__stat--purple {
   background-color: #a229a2;
@@ -78,8 +80,14 @@ export default {
 .user__list-item {
   padding: 15px 8px;
   color: #fff;
-  border: solid 1px #2c2d2e;
+  border: solid 1px#3d4247;
   font-size: 0.9rem;
+}
+.user__list-item--radius-top {
+  border-radius: 5px 5px 0 0;
+}
+.user__list-item--radius-bottom {
+  border-radius: 0 0 5px 5px;
 }
 .user__image {
   max-width: 180px;
@@ -93,7 +101,7 @@ export default {
   font-size: 1rem;
 }
 .user__link {
-  color: #55d48a;
+  color: #36af8b;
   font-size: 1rem;
   display: inline-block;
   text-decoration: underline;
@@ -117,6 +125,18 @@ export default {
   }
   .user__image {
     width: 100%;
+  }
+}
+@media screen and (max-width: 25em) {
+  .user__image {
+    margin: 0 auto;
+  }
+  .user__stats {
+    display: flex;
+    flex-direction: column;
+  }
+  .user__stat {
+    margin: 5px 0;
   }
 }
 </style>

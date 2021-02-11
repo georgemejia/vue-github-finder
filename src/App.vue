@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 class="title">Vue GitHub Finder</h1>
+    <p class="text">A simple webapp to search for your favorite GitHub users</p>
     <search-bar v-on:inputValue="getUser($event)" />
 
     <div>
@@ -64,16 +65,23 @@ export default {
 
 body {
   font-family: sans-serif;
-  background-color: #151515;
+  background-color: #1a1a1a;
 }
 .title {
   color: #f0f0f0;
   font-size: 2.5rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1px;
-  background-color: #55d48a;
-  padding: 1em;
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+.text {
+  text-align: center;
+  color: #30363a;
+  font-size: 1rem;
+  width: 300px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 </style>

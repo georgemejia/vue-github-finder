@@ -2,13 +2,13 @@
   <div>
     <div class="container">
       <div class="form__control">
-        <label class="label">Enter a users username to fetch the users profile</label>
+        <label class="label">Enter a username to fetch profile</label>
         <input
           v-model="username"
           v-on:keyup="sendValue"
           class="input"
           type="text"
-          placeholder="Type username"
+          placeholder="Type username..."
         />
       </div>
     </div>
@@ -40,7 +40,7 @@ export default {
 }
 
 .form__control {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .label {
@@ -49,15 +49,19 @@ export default {
 }
 
 .input {
+  color: #b8b8b8;
   box-sizing: border-box;
   width: 100%;
-  padding: 8px 12px;
   margin-top: 8px;
   font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #212324;
 }
 
 .input::placeholder {
-  color: #c9c9c9;
+  color: #51555c;
 }
 
 @media screen and (max-width: 40em) {
